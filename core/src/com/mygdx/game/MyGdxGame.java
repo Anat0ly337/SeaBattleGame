@@ -1,3 +1,11 @@
+/*
+ * Copyright (c) 2020. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+ * Morbi non lorem porttitor neque feugiat blandit. Ut vitae ipsum eget quam lacinia accumsan.
+ * Etiam sed turpis ac ipsum condimentum fringilla. Maecenas magna.
+ * Proin dapibus sapien vel ante. Aliquam erat volutpat. Pellentesque sagittis ligula eget metus.
+ * Vestibulum commodo. Ut rhoncus gravida arcu.
+ */
+
 package com.mygdx.game;
 
 import com.badlogic.gdx.ApplicationAdapter;
@@ -19,13 +27,14 @@ public class MyGdxGame extends ApplicationAdapter {
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
+		//параметры экрана
 		ScreenParams.screenHeight = Gdx.graphics.getHeight();
 		ScreenParams.screenWigth = Gdx.graphics.getWidth();
 		ScreenParams.cellsWidth = ScreenParams.screenWigth;
 		ScreenParams.cellsHeight = ScreenParams.screenWigth;
 		ScreenParams.cellH = (int) ((ScreenParams.cellsHeight / 10) * 0.925);
 		ScreenParams.cellW = (int) ((ScreenParams.cellsWidth / 10) * 0.94);
-
+		//создание шедера
 		ShaderProgram.pedantic = false;
 		shader = new ShaderProgram(Gdx.files.internal("shaders/default.vert"),
 				(Gdx.files.internal("shaders/invertColors.frag")));
@@ -33,7 +42,6 @@ public class MyGdxGame extends ApplicationAdapter {
 			System.err.println(shader.getLog());
 			System.exit(0);
 		}
-
 		gsm = new GameStateManager();
 		gsm.push(new MenuState(gsm,shader));
 	}
@@ -45,7 +53,6 @@ public class MyGdxGame extends ApplicationAdapter {
 		gsm.render(batch);
 	}
 
-	
 	@Override
 	public void dispose () {
 		batch.dispose();

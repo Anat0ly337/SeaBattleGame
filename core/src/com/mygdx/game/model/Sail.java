@@ -34,8 +34,8 @@ public class Sail extends Model {
         rectangle = new Rectangle();
         rectangle.x = positionX;
         rectangle.y = positionY;
-        rectangle.height = (float) (ScreenParams.cellH);
-        rectangle.width = (float) (ScreenParams.cellW);
+        rectangle.height = (float) (ScreenParams.cellH*0.9);
+        rectangle.width = (float) (ScreenParams.cellW*0.9);
 
     }
 

@@ -44,29 +44,6 @@ public class GameState extends State {
         }
     }
 
-   /* private void test() {
-        int randomOne = MathUtils.random(0, 9);
-        int randomTwo = MathUtils.random(0, 9);
-        double startX = ScreenParams.cellsWidth - ScreenParams.cellsWidth * 0.935;
-        double startY = ScreenParams.cellsHeight - ScreenParams.cellsHeight * 0.99;
-        int randomX = (int) (startX + randomOne * ScreenParams.cellW);
-        int randomY = (int) (startY + randomTwo * ScreenParams.cellW);
-        Sail sail = new Sail((int) randomX, (int) randomY, (int) (ScreenParams.cellW * 0.99));
-        models.add(sail);
-        Rectangle rectangle = new Rectangle();
-        rectangle.x = sail.getPosition().x;
-        rectangle.y = sail.getPosition().y;
-        rectangle.height = sail.getRectangle().height;
-        rectangle.width = sail.getRectangle().width;
-
-        for (Model graySquare : models) {
-            if (graySquare instanceof GraySquare) {
-                if (graySquare.getRectangle().overlaps(rectangle) || rectangle.overlaps(graySquare.getRectangle())) {
-                    System.out.println("--------------------------------------------");
-                }
-            }
-        }
-    }*/
 
     @Override
     public void update(float dt) {
@@ -78,7 +55,6 @@ public class GameState extends State {
         camera.update();
         shader.setUniformf("resolution", (float)ScreenParams.screenWigth,(float) ScreenParams.screenHeight);
         sb.setShader(shader);
-
         sb.begin();
         sb.draw(background, 0, 0, ScreenParams.screenWigth, ScreenParams.screenHeight);
         sb.draw(field, 0, ScreenParams.screenHeight - ScreenParams.cellsHeight, ScreenParams.cellsWidth, ScreenParams.cellsHeight);
@@ -94,6 +70,8 @@ public class GameState extends State {
 
     @Override
     public void dispose() {
-
+        background.dispose();
+        field.dispose();
+        button.dispose();
     }
 }

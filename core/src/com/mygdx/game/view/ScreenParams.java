@@ -11,7 +11,6 @@ public class ScreenParams {
     static {
         cellsWidth = screenWigth;
         cellsHeight = screenWigth;
-
         cellH = (int) ((cellsHeight / 10) * 0.925);
         cellW = (int) ((cellsWidth / 10) * 0.94);
     }
