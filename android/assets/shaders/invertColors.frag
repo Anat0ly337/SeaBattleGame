@@ -31,15 +31,10 @@ void main() {
     float vignette = smoothstep(RADIUS, RADIUS-SOFTNESS, len);
 
     //apply the vignette with 50% opacity
-    texColor.rgb = mix(texColor.rgb,1.0-texColor.rgb * vignette, 0.56);
-
-    //2. GRAYSCALE
+    texColor.rgb = mix(1.0-texColor.rgb,texColor.rgb * vignette, 0.56);
 
     //convert to grayscale using NTSC conversion weights
     float gray = dot(texColor.rgb, vec3(0.9, 0.9, 0.9));
-
-
-    //3. SEPIA
 
     //create our sepia tone from some constant value
     vec3 sepiaColor = vec3(gray) * SEPIA;
