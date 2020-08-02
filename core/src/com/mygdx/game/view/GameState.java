@@ -76,12 +76,12 @@ public class GameState extends State {
     @Override
     public void render(SpriteBatch sb) {
         camera.update();
+        shader.setUniformf("resolution", (float)ScreenParams.screenWigth,(float) ScreenParams.screenHeight);
         sb.setShader(shader);
-        int x = ScreenParams.screenHeight - ScreenParams.cellsHeight;
-        int y = ScreenParams.cellsWidth;
+
         sb.begin();
         sb.draw(background, 0, 0, ScreenParams.screenWigth, ScreenParams.screenHeight);
-        sb.draw(field, 0, x, y, ScreenParams.cellsHeight);
+        sb.draw(field, 0, ScreenParams.screenHeight - ScreenParams.cellsHeight, ScreenParams.cellsWidth, ScreenParams.cellsHeight);
         sb.draw(button, ScreenParams.screenWigth / 2 - 100, ScreenParams.screenHeight / 4 - 100, 200, 200);
         for (Model model : models) {
             if (model instanceof Sail) {
